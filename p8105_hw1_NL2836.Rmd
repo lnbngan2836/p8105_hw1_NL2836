@@ -5,4 +5,33 @@ date: "2023-09-23"
 output: github_document
 ---
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# Problem 1
+
+First, we load the necessary libraries.
+
+```{r setup}
+library(moderndive)
+library(tidyverse)
+```
+
+This code chunk below downloads the dataset and views it.
+
+```{r load dataset}
+data("early_january_weather")
+view(early_january_weather)
+```
+
+## Dataset short description:
+
+- This dataset includes information about the weather in early January of EWR in 2013. 
+
+- The dataframe has `r ncol(early_january_weather)` columns (i.e., variables), including `origin`, `year`, `month`, `day`, `hour`, `temp`, `dewp`, `humid`, `wind_dir`, `wind_speed`, `wind_gust`, `precip`, `pressure`, `visistb`, and `time_hour`. There are `r nrow(early_january_weather)` rows, or `r nrow(early_january_weather)` observations.
+
+- The mean temperature is `r round(mean(early_january_weather$temp),1)`.
+
+## Scatterplots
+
+- This code chunk makes a scatterplot of `temp` (y) vs `time_hour` (x) with color points using the `humid` variable.
+
+
+
