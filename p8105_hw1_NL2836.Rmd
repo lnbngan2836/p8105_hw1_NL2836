@@ -21,7 +21,7 @@ data("early_january_weather")
 view(early_january_weather)
 ```
 
-## Dataset short description:
+## a) Dataset short description
 
 - This dataset includes information about the weather in early January of EWR in 2013. 
 
@@ -29,9 +29,25 @@ view(early_january_weather)
 
 - The mean temperature is `r round(mean(early_january_weather$temp),1)`.
 
-## Scatterplots
+## b) Scatterplots
 
 - This code chunk makes a scatterplot of `temp` (y) vs `time_hour` (x) with color points using the `humid` variable.
+
+```{r scatterplot temp/time_hour}
+scatterplot_jan <- ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+```
+
+### Describe plot pattern
+- In EWR, the temperature (y axis) fluctuates between around 24F to around 58F during the first 15 days (x axis) of January in 2013. The humidity (color of the points) fluctuates from 30% to 100%. The 14th was the warmest day with high humidity. 
+
+### Export scatterplot
+
+This code chunk export the scatterplot to the project directory.
+
+```{r export plot}
+ggsave("scatterplot_jan.png", width = 5, height = 5, dpi = 300)
+```
+
 
 
 
