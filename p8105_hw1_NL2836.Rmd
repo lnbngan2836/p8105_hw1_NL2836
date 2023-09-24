@@ -66,7 +66,7 @@ random_df = tibble(
   log_vec = sample > 0,
   char_vec = c("a","b","c","d","e","f","g","h","i","j"),
   fac_vec = factor(
-    sample(c("Group 1", "Group 2", "Group 3"), size = 10, replace = TRUE),
+    sample(c("Low", "Medium", "High"), size = 10, replace = TRUE),
 )
 )
 
@@ -129,7 +129,7 @@ Here the output is converted to `NA` (i.e., non applicable) because of coercion.
 as.numeric(random_df$fac_vec)
 ```
 
-Here the `fac_vec` values are converted into numerical values according to their "levels". This is because factor vector are categorical data, and R determines the "levels" automatically based on the unique value of the factor vector. `Group A` is converted to 1, `Group B` is converted to 2, and `Group C` is converted to 3.
+Here the `fac_vec` values are converted into numerical values according to their "levels". This is because factor vector are categorical data, and R determines the "levels" automatically based on the unique value of the factor vector. `Low` is converted to 2, `Medium` is converted to 3, and `High` is converted to 1.
 
 ### Comments
 
