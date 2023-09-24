@@ -31,7 +31,7 @@ view(early_january_weather)
 
 ## b) Scatterplots
 
-- This code chunk makes a scatterplot of `temp` (y) vs `time_hour` (x) with color points using the `humid` variable and print the plot.
+This code chunk makes a scatterplot of `temp` (y) vs `time_hour` (x) with color points using the `humid` variable and print the plot.
 
 ```{r scatterplot temp/time_hour}
 scatterplot_jan <- ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
