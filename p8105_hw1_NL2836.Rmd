@@ -99,9 +99,9 @@ Next take the mean of the factor vector `fac_vec` in the dataframe and print it.
 mean(random_df$fac_vec)
 ```
 
-### Description
+### Comments
 - Only the mean of the `sample` and the `log_vec` variables can be determined. 
-- The mean of the `fac_vec` and `log_vec` cannot be determined since they are not numerical values.
+- The mean of the `fac_vec` and `log_vec` cannot be determined.
 
 ## c) Convert the variables with `as.numeric`
 
@@ -133,7 +133,8 @@ Here the `fac_vec` values are converted into numerical values according to their
 
 ### Comments
 
-This further explains why the mean of the factor vector `fac_vec` could not be determined, as this is a categorical variable rather than continuous or binary variable.  Additionally, the mean of the character vector `char_vec` could not be determined as well, since there is no numerical values assigned for characters.
+This further explains why the mean of the factor vector `fac_vec` could not be determined, as this is a categorical variable rather than continuous (like `sample`) or binary (like `log_vec`) variable.  Additionally, the mean of the character vector `char_vec` could not be determined as well, since there is no numerical values assigned for characters.
+
 
 
 
