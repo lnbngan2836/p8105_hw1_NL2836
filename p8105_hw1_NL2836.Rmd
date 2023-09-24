@@ -9,7 +9,7 @@ output: github_document
 
 First, we load the necessary libraries.
 
-```{r setup}
+```{r setup, message = FALSE}
 library(moderndive)
 library(tidyverse)
 ```
@@ -25,16 +25,17 @@ view(early_january_weather)
 
 - This dataset includes information about the weather in early January of EWR in 2013. 
 
-- The dataframe has `r ncol(early_january_weather)` columns (i.e., variables), including `origin`, `year`, `month`, `day`, `hour`, `temp`, `dewp`, `humid`, `wind_dir`, `wind_speed`, `wind_gust`, `precip`, `pressure`, `visistb`, and `time_hour`. There are `r nrow(early_january_weather)` rows, or `r nrow(early_january_weather)` observations.
+- The dataset has `r ncol(early_january_weather)` columns (i.e., variables), including `origin`, `year`, `month`, `day`, `hour`, `temp`, `dewp`, `humid`, `wind_dir`, `wind_speed`, `wind_gust`, `precip`, `pressure`, `visistb`, and `time_hour`. There are `r nrow(early_january_weather)` rows, or `r nrow(early_january_weather)` observations.
 
 - The mean temperature is `r round(mean(early_january_weather$temp),1)`.
 
 ## b) Scatterplots
 
-- This code chunk makes a scatterplot of `temp` (y) vs `time_hour` (x) with color points using the `humid` variable.
+- This code chunk makes a scatterplot of `temp` (y) vs `time_hour` (x) with color points using the `humid` variable and print the plot.
 
 ```{r scatterplot temp/time_hour}
 scatterplot_jan <- ggplot(early_january_weather, aes(x = time_hour, y = temp, color = humid)) + geom_point()
+print(scatterplot_jan)
 ```
 
 ### Describe plot pattern
@@ -47,6 +48,89 @@ This code chunk export the scatterplot to the project directory.
 ```{r export plot}
 ggsave("scatterplot_jan.png", width = 5, height = 5, dpi = 300)
 ```
+
+
+# Problem 2
+
+## Create a dataframe with:
+- Random sample of size 10, standard Normal Distribution. 
+- Logical vector to indicate whether elements of the sample > 0.
+- A character vector of length 10.
+- A factor vector of length 10, with 3 different factor "levels".
+
+This code chunk creates the dataframe accordingly and view it. 
+
+```{r create dataframe}
+random_df = tibble(
+  sample = rnorm(10, mean = 0, sd = 1),
+  log_vec = sample > 0,
+  char_vec = c("a","b","c","d","e","f","g","h","i","j"),
+  fac_vec = factor(
+    sample(c("Group 1", "Level 2", "Level 3"), size = 10, replace = TRUE),
+)
+)
+
+view(random_df)
+```
+
+## Take the mean of the variables
+
+First take the mean of the variable `sample` in the dataframe and print it.
+
+```{r}
+mean(random_df$sample)
+```
+
+Next take the mean of the logical vector `log_vec` in the dataframe and print it.
+
+```{r}
+mean(random_df$log_vec)
+```
+
+Next take the mean of the character vector `char_vec` in the dataframe and print it.
+
+```{r}
+mean(random_df$char_vec)
+```
+
+Next take the mean of the factor vector `fac_vec` in the dataframe and print it.
+
+```{r}
+mean(random_df$fac_vec)
+```
+
+### Description
+- Only the mean of the `sample` and the `log_vec` variables can be determined. 
+- The mean of the `fac_vec` and `log_vec` cannot be determined since they are not numerical values.
+
+## Convert the variables with `as.numeric`
+
+`eval = FALSE` is used to specify no output of the code chunks when rendering the document.
+
+### Convert `log_vec`
+
+```{r convert log, eval = FALSE}
+as.numeric(random_df$log_vec)
+```
+
+Here the `FALSE` values are converted into 0 and the `TRUE`values are converted into 1.
+
+### Convert `char_vec`
+
+```{r convert char, eval = FALSE}
+as.numeric(random_df$char_vec)
+```
+
+Here the output is converted to `NA` (i.e., non applicable) because of coercion. This is because there is no numeric value assigned for any character value.
+
+### Convert `fac_vec`
+
+```{r convert fac, eval = FALSE}
+as.numeric(random_df$fac_vec)
+```
+
+Here the `fac_vec` values are converted into numerical values according to their "levels". This is because factor vector are categorical data, and R determines the "levels" automatically based on the unique value of the factor vector. 
+
 
 
 
