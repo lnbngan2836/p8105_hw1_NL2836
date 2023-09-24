@@ -107,7 +107,7 @@ mean(random_df$fac_vec)
 
 `eval = FALSE` is used to specify no output of the code chunks when rendering the document.
 
-### Convert `log_vec`
+### Convert logic vector 
 
 ```{r convert log, eval = FALSE}
 as.numeric(random_df$log_vec)
@@ -115,7 +115,7 @@ as.numeric(random_df$log_vec)
 
 Here the `FALSE` values are converted into 0 and the `TRUE`values are converted into 1.
 
-### Convert `char_vec`
+### Convert character vector
 
 ```{r convert char, eval = FALSE}
 as.numeric(random_df$char_vec)
@@ -123,7 +123,7 @@ as.numeric(random_df$char_vec)
 
 Here the output is converted to `NA` (i.e., non applicable) because of coercion. This is because there is no numeric value assigned for any character value.
 
-### Convert `fac_vec`
+### Convert factor vector
 
 ```{r convert fac, eval = FALSE}
 as.numeric(random_df$fac_vec)
