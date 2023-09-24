@@ -43,7 +43,7 @@ print(scatterplot_jan)
 
 ### Export scatterplot
 
-This code chunk export the scatterplot to the project directory.
+This code chunk exports the scatterplot to the project directory.
 
 ```{r export plot}
 ggsave("scatterplot_jan.png", width = 5, height = 5, dpi = 300)
@@ -52,13 +52,13 @@ ggsave("scatterplot_jan.png", width = 5, height = 5, dpi = 300)
 
 # Problem 2
 
-## Create a dataframe with:
+## a) Create a dataframe with:
 - Random sample of size 10, standard Normal Distribution. 
 - Logical vector to indicate whether elements of the sample > 0.
 - A character vector of length 10.
 - A factor vector of length 10, with 3 different factor "levels".
 
-This code chunk creates the dataframe accordingly and view it. 
+This code chunk creates the dataframe accordingly and views it. 
 
 ```{r create dataframe}
 random_df = tibble(
@@ -73,7 +73,7 @@ random_df = tibble(
 view(random_df)
 ```
 
-## Take the mean of the variables
+## b) Take the mean of the variables
 
 First take the mean of the variable `sample` in the dataframe and print it.
 
@@ -81,7 +81,7 @@ First take the mean of the variable `sample` in the dataframe and print it.
 mean(random_df$sample)
 ```
 
-Next take the mean of the logical vector `log_vec` in the dataframe and print it.
+Next take the mean of the logical vector `log_vec` in the dataframe and prints it.
 
 ```{r}
 mean(random_df$log_vec)
@@ -103,7 +103,7 @@ mean(random_df$fac_vec)
 - Only the mean of the `sample` and the `log_vec` variables can be determined. 
 - The mean of the `fac_vec` and `log_vec` cannot be determined since they are not numerical values.
 
-## Convert the variables with `as.numeric`
+## c) Convert the variables with `as.numeric`
 
 `eval = FALSE` is used to specify no output of the code chunks when rendering the document.
 
