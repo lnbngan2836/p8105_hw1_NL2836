@@ -131,7 +131,9 @@ as.numeric(random_df$fac_vec)
 
 Here the `fac_vec` values are converted into numerical values according to their "levels". This is because factor vector are categorical data, and R determines the "levels" automatically based on the unique value of the factor vector. `Group A` is converted to 1, `Group B` is converted to 2, and `Group C` is converted to 3.
 
+### Comments
 
+This further explains why the mean of the factor vector `fac_vec` could not be determined, as this is a categorical variable rather than continuous or binary variable.  Additionally, the mean of the character vector `char_vec` could not be determined as well, since there is no numerical values assigned for characters.
 
 
 
